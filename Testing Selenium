@@ -1,0 +1,95 @@
+package Booklist;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Library{
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args)
+	{
+		System.setProperty("webdriver.chrome.driver", "C:/Users/palas/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//waits a specified time before throwing an exception if the element is not found
+		
+		driver.get("http://localhost:3000/");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		 WebElement create = driver.findElement(By.id("create"));
+			create.isDisplayed();
+			create.isEnabled();
+			create.click();
+			
+			WebElement name = driver.findElement(By.id("name"));
+			
+			name.isDisplayed();
+			name.isEnabled();
+			name.sendKeys("Demo1");
+			
+WebElement regusername = driver.findElement(By.id("regusername"));
+			
+regusername.isDisplayed();
+regusername.isEnabled();
+regusername.sendKeys("demo1");
+
+
+WebElement regpassword = driver.findElement(By.id("regpassword"));
+
+regpassword.isDisplayed();
+regpassword.isEnabled();
+regpassword.sendKeys("Demo");
+
+
+WebElement signup = driver.findElement(By.id("signup"));
+signup.isEnabled();
+signup.click();
+
+
+
+try {
+	Thread.sleep(2000);
+} catch (InterruptedException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+		
+WebElement username = driver.findElement(By.id("username"));
+
+username.isDisplayed();
+username.isEnabled();
+username.sendKeys("demo1");
+
+
+WebElement password = driver.findElement(By.id("password"));
+
+password.isDisplayed();
+password.isEnabled();
+password.sendKeys("Demo");
+
+WebElement login = driver.findElement(By.id("login"));
+login.isEnabled();
+login.click();
+
+
+
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		driver.close();
+	}
+}
+
